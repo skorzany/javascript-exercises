@@ -7,15 +7,11 @@ const subtract = function(x, y) {
 };
 
 const sum = function(arr) {
-	let total = 0;
-  for (number of arr) total += number;
-  return total;
+  return arr.reduce((accumulator, current) => accumulator + current, 0);
 };
 
 const multiply = function(arr) {
-  let total = 1;
-  for (num of arr) total *= num;
-  return total;
+  return arr.reduce((accumulator, current) => accumulator*current, 1);
 };
 
 const power = function(x, y) {
