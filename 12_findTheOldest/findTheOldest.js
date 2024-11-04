@@ -1,15 +1,12 @@
-const findTheOldest = function(arr) {
-    let oldestPerson = {};
-    let oldestAge = -1;
+function getAge(obj) {
+    const dod = ('yearOfDeath' in obj) ? obj.yearOfDeath : (new Date()).getFullYear();
+    return dod - obj.yearOfBirth;
+}
 
-    for (obj of arr) {
-        const age = (obj["yearOfDeath"] || new Date().getFullYear()) - obj["yearOfBirth"]
-        if (oldestAge < age) {
-            oldestAge = age;
-            oldestPerson = obj;
-        }
-    }
-    return oldestPerson;
+const findTheOldest = function(arr) {
+    return arr.reduce((accumulator, current) => {
+        return (getAge(accumulator) < getAge(current)) ? current : accumulator;
+    });
 };
 
 // Do not edit below this line
